@@ -1,0 +1,22 @@
+---
+- name: install daemontools
+  apt: name=daemontools state=present
+
+# tasks file for ansible_syncthing_role/
+# https://github.com/calmh/syncthing/releases/latest
+#
+- name: instally syncthing
+  debug: msg="from tarball to /usr/local/bin"
+
+- name: Setup sync dir
+  file: path=/var/lib/syncthing owner=www-data group=root mode=700
+
+- name: generate node id
+  debug: msg="use syncthing"
+
+- name: Setup config
+  template: src=templates/config.xml.j2 dest=/var/lib/syncthing/config.xml owner=www-data group=root mode=644
+
+- name: setup start service
+  debug: msg="setup daemontools to run /usr/local/bin/syncthing -home=/var/lib/syncthing"
+

@@ -1,0 +1,7 @@
+---
+syncthing_version: 0.9.8
+syncthing_arch: "linux-amd64"
+syncthing_uri: "https://github.com/syncthing/syncthing/releases/download/v{{syncthing_version}}/syncthing-{{syncthing_arch}}-v{{syncthing_version}}.tar.gz"
+
+syncthing_gui_ip: 127.0.0.1
+syncthing_gui_port: 8080
